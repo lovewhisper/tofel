@@ -165,10 +165,7 @@
 </section>
 </article>
 <nav id="sidebar">
-<form>
-<input id="lunr-search" name="q" placeholder="🔎 Search ..." aria-label="Search"
-disabled minlength="2">
-</form>
+
 <link rel="preload stylesheet" as="style" href="assets/tingle/0.15.3/tingle.min.css">
 <script src="assets/tingle/0.15.3/tingle.min.js"></script>
 <style>
@@ -185,33 +182,8 @@ height: 80vh;
 .modal-dialog .tingle-modal-box {width: auto;}
 .modal-dialog .tingle-modal-box__content {padding: 0;}
 </style>
-<script>
-const input = document.getElementById('lunr-search');
-input.disabled = false;
-input.form.addEventListener('submit', (ev) => {
-ev.preventDefault();
-const url = new URL(window.location);
-url.searchParams.set('q', input.value);
-history.replaceState({}, null, url.toString());
-search(input.value);
-});
-const query = new URL(window.location).searchParams.get('q');
-if (query)
-search(query);
-function search(query) {
-const url = 'doc-search.html#' + encodeURIComponent(query);
-new tingle.modal({
-cssClass: ['modal-dialog'],
-onClose: () => {
-const url = new URL(window.location);
-url.searchParams.delete('q');
-history.replaceState({}, null, url.toString());
-setTimeout(() => input.focus(), 100);
-}
-}).setContent('<iframe src="' + url + '"></iframe>').open();
-}
-</script>
-<h1>托福考试</h1>
+
+<h1>托福考试 快速到达</h1>
 <ul id="index">
 <li><h3><a href="#TOFEL_WORDS_700">托福 700 词</a></h3>
 </li>
